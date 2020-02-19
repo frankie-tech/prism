@@ -10,27 +10,23 @@
     const close = /\]\]/;
     const chunk = open.source + chunkToken.source + '.*';
 
-    var regexes = {
-        /* Simple chunk regex */
-        
-    }
     Prism.languages.modx = {
         tag: {
-            pattern: /\[\[!?(?:(?:-.*\]\])|(?:(?:\*|\$|\+|\+\+|~|%)?[\w-.]*(?:@[\w-.]*)?(?::[\w-.]*(?:=`.*`)?)*\??\s*(?:(?:&[\w-.]*=`.*`\s*)*)\]\]))/,
+            pattern: /\[\[!?(?:(?:-.*\]\])|(?:(?:\*|\$|\+|\++|~|%)?[\w\d-.]*(?:@[\w\d-.]+)?(?::[\w\d-.]*(?:=`.*?`)?)*?\??\s*(?:(?:&[\w-.]*=`.*?`\s*?)*?)\]\]))/,
             inside: {
-                'chunk-start': /\[\[!?\$[\w-.]*/,
-                'variable-start': /\[\[!?(?:\*|\++)[\w-.]*/,
-                'snippet-start': /\[\[!?[\w-.]*/,
-                'link-start': /\[\[!?~[\w-.[\]]*/,
-                'lexicon-start': /\[\[!?%[\w-.[\]]*/,
+                'chunk-start': /\[\[!?\$[\w\d-.]*/,
+                'variable-start': /\[\[!?(?:\*|\++)[\w\d-.]*/,
+                'snippet-start': /\[\[!?[\w\d-.]*/,
+                // ! figure out why link & lexicon start don't envelope the text inside the tag????
+                'link-start': /\[\[!?~[\w\d-.[\]]*/,
+                'lexicon-start': /\[\[!?%[\w\d-.[\]]*/,
                 'tag-end': /\]\]/,
-                'output-filter': /:[\w-.]*(?:=`.*`)?(?=\?|:)/,
-                'property-set': /@[\w-.]+/,
-                parameter: {
-                    pattern: /&[\w-.]*(?:=`.*`)?(?=\s*|\])/
-                }
+                'output-filter': /:[\w\d-.]+=?/,
+                'property-set': /@[\w\d-.]+/,
+                parameter: /&[\w\d-.]*=/,
+                input: /`.*?`/,
+                punctuation: /[?]/,
             }
         },
     }
-
 }(Prism))
