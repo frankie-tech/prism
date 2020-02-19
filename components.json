@@ -635,7 +635,7 @@
 		},
 		"modx": {
 			"title":"MODx CMS",
-			"require":"php",
+			"require":["php","html"],
 			"owner":"frankie-tech"
 		},
 		"monkey": {

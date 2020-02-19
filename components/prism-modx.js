@@ -1,15 +1,16 @@
 (function(Prism) {
     // Tag syntax regex \[\[!?(?:(?:-.*\]\])|(?:(?:\*|\$|\+|\+\+|~|%)?[\w-]*(?:@[\w-]*)?(?::[\w-]*(?:=`.*`)?)*\??\s*(?:(?:&[\w-]*=`.*`\s*)*)\]\]))
-    const open = /\[\[!?/;
-    const chunkToken = /\$/;
-    const tvToken = /\*/;
-    const lexiconToken = /%/;
-    const propertySetToken = /(@[\w-]*)?/;
-    const siteVariableToken = '\+{2}';
-    const params = /\??\s*(&[a-zA-Z0-9]=`.*`)*/;
-    const close = /\]\]/;
-    const chunk = open.source + chunkToken.source + '.*';
-
+    /*
+    var open = /\[\[!?/;
+    var chunkToken = /\$/;
+    var tvToken = /\/;
+    var lexiconToken = /%/;
+    var propertySetToken = /(@[\w-]*)?/;
+    var siteVariableToken = '\+{2}';
+    var params = /\??\s*(&[a-zA-Z0-9]=`.*`)/;
+    var close = /\]\]/;
+    var chunk = open.source + chunkToken.source + '.*';
+    */
     Prism.languages.modx = {
         tag: {
             pattern: /\[\[!?(?:(?:-.*\]\])|(?:(?:\*|\$|\+|\++|~|%)?[\w\d-.]*(?:@[\w\d-.]+)?(?::[\w\d-.]*(?:=`.*?`)?)*?\??\s*(?:(?:&[\w-.]*=`.*?`\s*?)*?)\]\]))/,

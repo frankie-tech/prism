@@ -70,7 +70,10 @@
 		"lilypond": "scheme",
 		"markdown": "markup",
 		"markup-templating": "markup",
-		"modx": "php",
+		"modx": [
+			"php",
+			"html"
+		],
 		"n4js": "javascript",
 		"nginx": "clike",
 		"objectivec": "c",
